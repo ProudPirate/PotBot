@@ -1,0 +1,40 @@
+{% extends "import.html" %}
+{% block content %}
+
+<center class="col-xl-6 m-auto">
+    <br>
+    <h2 class="dark">Plant Disease Detection</h2>
+    <br>
+
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+
+        <div class="form-group m-2">
+            <label class="font-weight-bold">Plant Name : </label>
+            <select name="plant_name" id="options" class="form-control col-xl-6 m-auto">
+                {% for x in options %}
+                <option value="{{x}}">{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="file" name="file" class="btn btn-dark" id="imageUpload" accept=".png, .jpg, .jpeg">
+
+    </form>
+
+
+    <div class="image-section" style="display:none;">
+        <img id="imagePreview" class="img-responsive" src="#" style="width:300px;height:300px;" /><br><br>
+        <div>
+            <button type="button" class="btn btn-dark btn-block col-xl-6 m-auto" id="btn-predict">Predict</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span>
+        </span>
+    </h3>
+
+
+</center>
+{% endblock %}
